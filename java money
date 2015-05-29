@@ -1,0 +1,43 @@
+import java.util.Scanner;            //引用輸入變數的單元
+public class p1
+{
+public static void main(String args[])
+{
+int n=0;
+int a=0;
+int b=0;
+int i=0;
+String a1="";	//答案1
+String a2="";	//答案2
+int a3=0;	//答案3
+
+final int MY_ARRAY[]={1000,500,100,50,10,5,1}; //常數陣列
+
+System.out.println("請輸入數字:");   //單純印文字
+Scanner key =new Scanner(System.in); //抓剛剛輸入的數字
+n=key.nextInt();                     //丟入n //題目為925
+
+for (i = 0; i <= 6; i++) {	//跑一圈陣列
+       	if (n/MY_ARRAY[i]>=1) { //如果取到第一個有幣值的數字
+		a=MY_ARRAY[i];  //500
+		b=n-a;          //425
+		a3=a-b;		//75
+		break;		//成功取得a b 就跳出迴圈
+	}
+       }
+for (i = 0; i <= 6; i++) {	//跑一圈陣列
+       	a1=a1+a/MY_ARRAY[i]+" ";	//字串累加 把每次的相除的商丟進去
+	if (a/MY_ARRAY[i] >=1){		//如果相除>1 則
+		a=a-a/MY_ARRAY[i]*MY_ARRAY[i];	//變數扣掉剛剛已經用掉的數字
+	}
+	a2=a2+b/MY_ARRAY[i]+" ";	//第二個變數 相同做法
+	if (b/MY_ARRAY[i] >=1){
+		b=b-b/MY_ARRAY[i]*MY_ARRAY[i];
+	}
+}
+//印出答案
+System.out.println(a1);
+System.out.println(a2);
+System.out.println(a3);
+}
+}
